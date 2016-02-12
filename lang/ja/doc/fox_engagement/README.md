@@ -16,32 +16,16 @@ F.O.X SDKアクセス解析機能を利用することにより媒体を横断�
 
 | 引数 | 型 | 概要 |
 |:----------:|:-----------:|:------------|
-eventName       |        String |     計測を行うイベント種別に応じて、指定されたイベント名を設定します。
-<span style="color:#b8b8b8">action     |        <span style="color:#b8b8b8">String |     <span style="color:#b8b8b8">使用しません。 
-label	|String|	アクションに属するラベル名を設定します。ラベル名は⾃由に設定可能です。
-orderId	|String|	注⽂番号等を指定します。
-sku	|String|商品コード等を指定します。
- <span style="color:#b8b8b8">itemName| <span style="color:#b8b8b8">String| <span style="color:#b8b8b8">使用しません。
- <span style="color:#b8b8b8">value	| <span style="color:#b8b8b8">int|<span style="color:#b8b8b8">使用しません。
-price|	double|	売上金額を指定します。
-quantity|	int|	数量を指定します。price * quantityが売上金額として計上されます。
-currency	|String|	通貨コードを指定します。nullの場合は”JPY”が指定されます。
-eventInfo|	JSONObject|	任意のイベント情報をまとめて送信する際に指定します。
+eventName|String|計測を行うイベント種別に応じて、指定されたイベント名を設定します。
+<span style="color:#b8b8b8">action|<span style="color:#b8b8b8">String|<span style="color:#b8b8b8">使用しません。 
+<span style="color:#b8b8b8">label	|<span style="color:#b8b8b8">String|<span style="color:#b8b8b8">使用しません。orderId|String|(任意)注⽂番号等を指定します。sku	|String|(任意)商品コード等を指定します。<span style="color:#b8b8b8">itemName|<span style="color:#b8b8b8">String|<span style="color:#b8b8b8">使用しません。<span style="color:#b8b8b8">value	|<span style="color:#b8b8b8">int|<span style="color:#b8b8b8">使用しません。price|double|	売上金額を指定します。quantity|int|	数量を指定します。<br>price * quantityが売上金額として計上されます。currency|String|通貨コードを指定します。nullの場合は”JPY”が指定されます。eventInfo|JSONObject|下記の仕様のとおりにJsonを指定します。
 
 ### 1.2. eventInfo仕様
 eventInfo内にアクションに付随する情報をJson形式で設定することで、ダイナミックな配信連携が可能になります。
 Jsonの仕様は以下の通りです。 
 
 | 引数 | 型 | 概要 |
-|:----------:|:-----------:|:------------|
-|product[].id	|String	|閲覧した、カートに入れた等の商品IDを設定します。|
-|product[].price	|double	|閲覧した、カートに入れた等の商品単価を設定します。|
-|product[].quantity	|int	|閲覧した、カートに入れた等の商品数量を設定します。|
-|product[].category	|String|	閲覧した、カートに入れた等の商品カテゴリを指定します。<br>複数ある場合はカンマ「,」区切り、階層がある場合は「>」で分割します。<br>例）映画、ビデオ>DVD>スポーツ、レジャー|
-|din	|String	|開始日の指定がある場合に設定します。|
-|dout	|String	|終了日の指定がある場合に指定します。|
-|criteo_partner_id	|String	|CriteoアカウントIDが同一アプリで異なる場合に設定します。|
-|fox_cvpoint	|Long	|F.O.Xの成果地点IDを入力します。|
+|:----------:|:-----------:|:------------|product[].id|String|閲覧した、カートに入れた等の商品IDを設定します。product[].price|double|閲覧した、カートに入れた等の商品単価を設定します。product[].quantity|int|閲覧した、カートに入れた等の商品数量を設定します。product[].category|String|閲覧した、カートに入れた等の商品カテゴリを指定します。<br>複数ある場合はカンマ「,」区切り、階層がある場合は「>」で分割します。<br>例）映画、ビデオ>DVD>スポーツ、レジャーdin|String|開始日の指定がある場合に設定します。dout|String|終了日の指定がある場合に指定します。criteo_partner_id|String|CriteoアカウントIDが同一アプリで異なる場合に設定します。fox_cvpoint|Long|F.O.Xの成果地点IDを入力します。
  
 ### 1.3. リアルタイムデータフィード更新仕様
 eventInfo内にデータフィードの更新情報をJson形式で設定することで、F.O.Xエンゲージメント配信連携により、リアルタイムにデータフィードを更新することができます。
@@ -49,21 +33,7 @@ eventInfo内にデータフィードの更新情報をJson形式で設定する�
 データフィードの状態が更新されるアクションの場合、下記を実装してください。
 
 | 引数 |必須|型 | 概要 |
-|:----------:|:-------:|:----:|:------------|
-datafeed.version|必須|String|データフィードのバージョンを指定します。
-datafeed.product|必須|Array<Object>|商品マスタデータフィードの設定領域です。
-datafeed.product[].id|必須	|String|データフィードの商品を一意に識別するIDです。
-datafeed.product[].action	|必須|String|データフィードをどのように変更するかを入力します。<br>U:追加もしくは編集　D:削除
-datafeed.product[].name|必須|String|商品名です。<br>削除の際はnullで構いません。
-datafeed.product[].expire|任意|String|商品の有効期限です。<br>「yyyy-MM-dd HH:mm:ss」もしくは「yyyy-MM-dd」の書式で日付を入力してください。
-datafeed.product[].effective|任意|String|商品の公開日時です。<br>これが設定された場合、公開日時になるまで商品は表示されません。「yyyy-MM-dd HH:mm:ss」もしくは「yyyy-MM-dd」の書式で日付を入力してください。
-datafeed.product[].img|任意|String|商品画像のURLです。
-datafeed.product[].category1|任意|String|第一階層のカテゴリを指定します。
-datafeed.product[].category2|任意|String|第二階層のカテゴリを指定します。
-datafeed.product[].category3|任意|String|第三階層のカテゴリを指定します。
-datafeed.product[].price|任意|Double|商品の価格を指定します。
-datafeed.product[].currency|任意|String|商品の通貨コードを指定します。nullの場合JPYが適用されます。
-datafeed.product[].(任意)|任意|String|その他の配信や分析に使用する項目を指定します。データフィードの項目を設定してください。
+|:----------:|:-------:|:----:|:------------|datafeed.version|必須|String|データフィードのバージョンを指定します。datafeed.product|必須|Array<Object>|商品マスタデータフィードの設定領域です。datafeed.product[].id|必須|String|データフィードの商品を一意に識別するIDです。datafeed.product[].action|必須|String|データフィードをどのように変更するかを入力します。<br>U:追加もしくは編集　D:削除datafeed.product[].name|必須|String|商品名です。<br>削除の際はnullで構いません。datafeed.product[].expire|任意|String|商品の有効期限です。<br>「yyyy-MM-dd HH:mm:ss」もしくは「yyyy-MM-dd」の書式で日付を入力してください。datafeed.product[].effective|任意|String|商品の公開日時です。<br>これが設定された場合、公開日時になるまで商品は表示されません。<br>「yyyy-MM-dd HH:mm:ss」もしくは「yyyy-MM-dd」の書式で日付を入力してください。datafeed.product[].img|任意|String|商品画像のURLです。datafeed.product[].category1|任意|String|第一階層のカテゴリを指定します。datafeed.product[].category2|任意|String|第二階層のカテゴリを指定します。datafeed.product[].category3|任意|String|第三階層のカテゴリを指定します。datafeed.product[].price|任意|Double|商品の価格を指定します。datafeed.product[].currency|任意|String|商品の通貨コードを指定します。<br>nullの場合JPYが適用されます。datafeed.product[].(任意)|任意|String|その他の配信や分析に使用する項目を指定します。<br>データフィードの項目を設定してください。	
 
 ### 1.4. イベント情報の送信方法
 
@@ -161,7 +131,7 @@ eventName|NSString|"\_view\_listing"を指定してください。
 <span style="color:#b8b8b8">value|<span style="color:#b8b8b8">NSInteger|<span style="color:#b8b8b8">使用しません。
 eventInfo(product)|NSDictionary|Productをキーとして商品ID を配列で⼊⼒してください。
 eventInfo(product[].id)|NSDictionary|商品IDを設定します。<br>データフィードと同じ商品IDを使⽤してください。
-eventInfo(product[].category)|NSDictionary|商品カテゴリ.データフィードと同じ商品カテゴリを使用してください。<br>１商品に対して複数カテゴリある場合はカンマ「,」区切り、階層がある場合は「>」で分割します。<br>例）映画、ビデオ>DVD>スポーツ、レジャーnullでも構いません。
+eventInfo(product[].category)|NSDictionary|商品カテゴリ.データフィードと同じ商品カテゴリを使用してください。<br>１商品に対して複数カテゴリある場合はカンマ「,」区切り、階層がある場合は「>」で分割します。例）映画、ビデオ>DVD>スポーツ、レジャーnullでも構いません。
 eventInfo(din/dout)|NSDictionary|⽇付の指定がある場合は⼊⼒してください。（任意）
 eventInfo(criteo_partner_id)|NSDictionary|Criteo アカウントID が同⼀アプリで異なる場合は⼊⼒(任意)
 eventInfo(fox_cvpoint)|NSDirectory|F.O.Xの成果地点IDを設定します。
@@ -273,8 +243,8 @@ Track Transaction（商品購入）イベントが発生する箇所に、下記
 eventName|NSString|任意の名前を指定してください。<br>特に指定がない場合は、"_purchase" を指定してください。
 <span style="color:#b8b8b8">action|<span style="color:#b8b8b8">NSString|<span style="color:#b8b8b8">使用しません。
 <span style="color:#b8b8b8">label|<span style="color:#b8b8b8">NSString|<span style="color:#b8b8b8">使用しません。
-orderID|NSString|（任意）購入時のオーダーIDを指定します。
-sku|NSString|（任意）商品のSKUを指定します。
+orderID|NSString|（任意）注⽂番号等を指定します。
+sku|NSString|（任意）商品コード等を指定します。
 <span style="color:#b8b8b8">itemName|<span style="color:#b8b8b8">NSString|<span style="color:#b8b8b8">使用しません。
 price|double|商品総額<br><span style="color:red">※必ず price * quantity の値が商品総額となるよう指定ください
 quantity|NSUInteger|1を指定してください。
