@@ -232,6 +232,8 @@ sendStartSessionは必ず上記二カ所に実装を行ってください。
 
 [アクセス解析による課金計測](./doc/analytics_purchase/README.md)
 
+[エンゲージメント配信について](./doc/fox_engagement/README.md)
+
 ## 6. 疎通テストの実施
 
 マーケットへの申請までに、SDKを導入した状態で十分にテストを行い、アプリケーションの動作に問題がないことを確認してください。
