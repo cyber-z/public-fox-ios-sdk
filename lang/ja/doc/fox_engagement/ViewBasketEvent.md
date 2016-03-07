@@ -31,7 +31,7 @@
 |eventName|NSString|"\_add\_to\_cart" を指定してください。|
 |<span style="color:grey">action|<span style="color:grey">NSString|<span style="color:grey">使用しません。|
 |<span style="color:grey">label|<span style="color:grey">NSString|<span style="color:grey">使用しません。|
-|<span style="color:grey">value|<span style="color:grey">int|<span style="color:grey">使用しません。|
+|<span style="color:grey">value|<span style="color:grey">NSUInteger|<span style="color:grey">使用しません。|
 |eventInfo|NSDictionary|イベント情報詳細 (以下参照)|
 
 

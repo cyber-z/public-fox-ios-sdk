@@ -56,8 +56,8 @@ Track Transaction（商品購入）イベントが発生する箇所に、下記
 |sku|NSString|（任意）商品コード等を指定します。|
 |<span style="color:grey">itemName|<span style="color:grey">NSString|<span style="color:grey">使用しません。|
 |price|double|商品総額を指定します。<br><span style="color:red">※必ず price * quantity の値が商品総額となるよう指定ください|
-|quantity|int|1を指定してください。|
-|currency|int|通貨コードを指定します。<br>nilの場合は”JPY”が指定されます。|
+|quantity|NSUInteger|1を指定してください。|
+|currency|NSUInteger|通貨コードを指定します。<br>nilの場合は”JPY”が指定されます。|
 |eventInfo|NSDictionary|イベント情報詳細 (以下参照)|
 
 #### イベント情報詳細

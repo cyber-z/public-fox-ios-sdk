@@ -5,7 +5,7 @@
 ### 実装例
 
 ```java
-[ForceAnalyticsManager sendEvent:@"_view_listing"
+[ForceAnalyticsManager sendEvent:@"_view_content"
                           action: nil
                            label: nil
                            value: 0
@@ -14,7 +14,7 @@
                                   @"product":@[{@"id": "111"}],
                                       @"din":@"2016-01-02",
                                      @"dout":@"2016-01-05",
-                        "'criteo_partner_id':'XXXXX'"
+                        @"criteo_partner_id":@"XXXXX"
                        }
 ];
 ```
@@ -26,7 +26,7 @@
 |eventName|NSString|"\_view\_content" を指定してください。|
 |<span style="color:grey">action|<span style="color:grey">NSString|<span style="color:grey">使用しません。|
 |<span style="color:grey">label|<span style="color:grey">NSString|<span style="color:grey">使用しません。|
-|<span style="color:grey">value|<span style="color:grey">int|<span style="color:grey">使用しません。|
+|<span style="color:grey">value|<span style="color:grey">NSUInteger|<span style="color:grey">使用しません。|
 |eventInfo|NSDictionary|イベント情報詳細 (以下参照)|
 
 #### イベント情報詳細
