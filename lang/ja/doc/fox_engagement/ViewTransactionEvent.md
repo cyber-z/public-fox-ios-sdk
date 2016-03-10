@@ -98,4 +98,5 @@ Track Transaction（商品購入）イベントが発生する箇所に、下記
 
 ---
 [戻る](/lang/ja/doc/fox_engagement/README.md)
+
 [TOPへ](/lang/ja/README.md)
