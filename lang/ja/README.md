@@ -341,4 +341,4 @@ iOSには、アプリ起動時に一定時間以上メインスレッドがブ�
 * 「Very Bad Network」をチェック
 
 ---
-[メインメニュー](/lang/README.md)
+[メインメニュー](/README.md)

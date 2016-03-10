@@ -322,4 +322,4 @@ iOS는 앱 기동 시 일정 시간 이상 메인 스레드가 블록되면 앱�
 * 「Very Bad Network」를 체크
 
 ---
-[메인 메뉴](/lang/README.md)
+[메인 메뉴](/README.md)
