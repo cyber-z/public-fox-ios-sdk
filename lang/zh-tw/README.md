@@ -309,4 +309,4 @@ Install計測的`sendConversionWithStartPage:`沒有被安裝到一啟動即執�
 * 勾選「Very Bad Network」
 
 ---
-[主菜單](../../README.md)
+[主菜單](/README.md)
