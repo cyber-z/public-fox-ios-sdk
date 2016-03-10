@@ -35,3 +35,7 @@
 |eventInfo (din/dout)|NSDictionary|日付の指定がある場合は入力（任意）|
 |eventInfo (criteo_partner_id)|NSDictionary|CriteoアカウントIDが同一アプリで異なる場合は入力(任意)|
 |eventInfo (fox_cvpoint)|NSDictionary|F.O.Xの成果地点IDを設定します。(任意)|
+
+---
+[戻る](/lang/ja/doc/fox_engagement/README.md)
+[TOPへ](/lang/ja/README.md)

@@ -39,3 +39,7 @@
 |eventInfo (din/dout)|NSDictionary|⽇付の指定がある場合は⼊⼒してください。（任意）|
 |eventInfo (criteo_partner_id)|NSDictionary|Criteo アカウントID が同⼀アプリで異なる場合は⼊⼒(任意)|
 　　
+
+---
+[戻る](/lang/ja/doc/fox_engagement/README.md)
+[TOPへ](/lang/ja/README.md)

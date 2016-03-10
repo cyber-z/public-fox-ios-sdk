@@ -94,3 +94,8 @@ Track Transaction（商品購入）イベントが発生する箇所に、下記
 |&nbsp;&nbsp;datafeed (product[].{任意})|NSDictionary|その他配信、分析に使用する項目を指定します。|
 
 > ※ 商品購⼊イベントの price に⼊⼒する⾦額は必ず、Json データに指定した商品の総額 (price * quantity)となるよう指定してください。指定されていない場合、集計が正しく⾏われません。
+
+
+---
+[戻る](/lang/ja/doc/fox_engagement/README.md)
+[TOPへ](/lang/ja/README.md)
