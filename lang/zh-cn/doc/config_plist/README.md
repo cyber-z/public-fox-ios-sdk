@@ -1,37 +1,37 @@
-## SDK設定的詳細
+## SDK设定的详细
 
-追加必要的設定讓SDK發揮作用。新建「AppAdForce.plist」這樣一個Property List文件放到項目的任意一個地方，並輸入下面的Key和Value。
+追加必要的设定让SDK发挥作用。新建「AppAdForce.plist」这样一个Property List文件放到项目的任意一个地方，并输入下面的Key和Value。
 
-在任意地點點擊右鍵→選擇「New File...」
+在任意地点点击右键→选择「New File...」
 
-![SDK設定01](./img01.png)
+![SDK设定01](./img01.png)
 
-選擇「Property List」。
+选择「Property List」。
 
-![SDK設定02](./img02.png)
+![SDK设定02](./img02.png)
 
-變更成「AppAdForce.plist」這個名稱、點擊Create按鈕。
+变更成「AppAdForce.plist」这个名称、点击Create按钮。
 
-![SDK設定03](./img03.png)
+![SDK设定03](./img03.png)
 
-選擇新建的Property List文件，用右鍵打開菜單，選擇Add Row」
+选择新建的Property List文件，用右键打开菜单，选择Add Row」
 
-![SDK設定04](./img04.png)
+![SDK设定04](./img04.png)
 
-設定各個Key和Value。
+设定各个Key和Value。
 
-![SDK設定05](./img05.png)
+![SDK设定05](./img05.png)
 
-設定的Key和Value如下。
+设定的Key和Value如下。
 
 Key | Type | Value
 :---: | :---: | :---
-APP_ID | String | 請將由Force Operation X管理者通知的數值輸入。
-SERVER_URL | String | 請將由Force Operation X管理者通知的數值輸入。
-APP_SALT | String | 請將由Force Operation X管理者通知的數值輸入。
-APP_OPTIONS | String | 請空白。
-CONVERSION_MODE | String | 請輸入1
-ANALYTICS_APP_KEY | String | 請將由Force Operation X管理者通知的數值輸入。<br />不利用流量分析的場合沒有必要設定
+APP_ID | String | 请将由Force Operation X管理者通知的数值输入。
+SERVER_URL | String | 请将由Force Operation X管理者通知的数值输入。
+APP_SALT | String | 请将由Force Operation X管理者通知的数值输入。
+APP_OPTIONS | String | 请空白。
+CONVERSION_MODE | String | 请输入1
+ANALYTICS_APP_KEY | String | 请将由Force Operation X管理者通知的数值输入。<br />不利用流量分析的场合没有必要设定
 
 [AppAdForce.plist例子](./AppAdForce.plist)
 

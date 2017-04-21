@@ -1,8 +1,8 @@
-## (任意)Opt-Out的安裝
+## (任意)Opt-Out的安装
 
-有些廣告公司會允許用戶選擇不接受瞄準投放的廣告。在APP啟動時，用戶若在顯示隱私條例和使用規範的視窗中選擇不參加的選項，接收到效果測量通知的同時，F.O.X會把此用戶選擇不參加的資訊，發送給廣告公司。
+有些广告公司会允许用户选择不接受瞄準投放的广告。在APP启动时，用户若在显示隐私条例和使用规范的视窗中选择不参加的选项，接收到效果测量通知的同时，F.O.X会把此用户选择不参加的资讯，发送给广告公司。
 
-若要對應Opt-Out，請在如同以下「Install計測安裝」導入sendConversionWithStartPage之前設定。
+若要对应Opt-Out，请在如同以下「Install计测安装」导入sendConversionWithStartPage之前设定。
 
 ```objective-c
 if(user.optout) {

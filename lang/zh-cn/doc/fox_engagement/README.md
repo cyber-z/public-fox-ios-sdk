@@ -1,23 +1,23 @@
-# F.O.X Engagement廣告投放
+# F.O.X Engagement广告投放
 
 ## 1. 概要
-本章對基於Force Operation X SDK(下面略稱F.O.X)的F.O.X Engagement廣告投放以及和Criteo協作時的必要安裝做說明。
-在進行F.O.X Engagement廣告投放時，需要在相同地點安裝LTV和流量分析各自的計測處理。
+本章对基於Force Operation X SDK(下面略称F.O.X)的F.O.X Engagement广告投放以及和Criteo协作时的必要安装做说明。
+在进行F.O.X Engagement广告投放时，需要在相同地点安装LTV和流量分析各自的计测处理。
 
-* **對應F.O.X iOS SDK版本** : `v2.16g`及以上
+* **对应F.O.X iOS SDK版本** : `v2.16g`及以上
 
-### 1.1.	SDK式樣
+### 1.1.	SDK式样
 
-透過利用F.O.X SDK流量分析機能，進行橫跨媒體的協作事件計測。計測可以根據不同內容來執行各種方法。
+透过利用F.O.X SDK流量分析机能，进行横跨媒体的协作事件计测。计测可以根据不同内容来执行各种方法。
 
-#### 事件資訊的送信
+#### 事件资讯的送信
 
-引入頭文件AnalyticsManager.h。
+引入头文件AnalyticsManager.h。
 ```objective-c
  #import "AnalyticsManager.h"
 ```
 
-利用下面的sendEvent方法，發送事件資訊。
+利用下面的sendEvent方法，发送事件资讯。
 ```objective-c
 + (void)sendEvent:(NSString*)eventName
            action:(NSString*)action
@@ -31,59 +31,67 @@
          eventInfo:(NSDictionary*)eventInfo;
 ```
 
-### sendEvent方法參數
+### sendEvent方法参数
 
-各參數的式樣如下。
+各参数的式样如下。
 
-| 參數 | 型 | 概要 |
+| 参数 | 型 | 概要 |
 |:----------|:-----------:|:------------|
-|eventName|String|針對做計測的事件種別來設定指定的Event名稱。|
+|eventName|String|针对做计测的事件种別来设定指定的Event名称。|
 |<span style="color:grey">action|<span style="color:grey">String|<span style="color:grey">不使用。|
-|<span style="color:grey">label	|<span style="color:grey">String|<span style="color:grey">不使用。||orderId|String|(任意)指定訂單號。||sku	|String|(任意)指定商品代號sku。||<span style="color:grey">itemName|<span style="color:grey">String|<span style="color:grey">不使用。||<span style="color:grey">value	|<span style="color:grey">int|<span style="color:grey">不使用。||price|double|	指定商品單價。||quantity|int|	指定數量。<br>按price * quantity來計算銷售額。||currency|String|指定貨幣代碼。null的場合默認指定為"JPY"。||eventInfo|JSONObject|按下面式樣的說明來指定Json。|
+|<span style="color:grey">label	|<span style="color:grey">String|<span style="color:grey">不使用。|
+|orderId|String|(任意)指定订单号。|
+|sku	|String|(任意)指定商品代号sku。|
+|<span style="color:grey">itemName|<span style="color:grey">String|<span style="color:grey">不使用。|
+|<span style="color:grey">value	|<span style="color:grey">int|<span style="color:grey">不使用。|
+|price|double|	指定商品单价。|
+|quantity|int|	指定数量。<br>按price * quantity来计算销售额。|
+|currency|String|指定货币代码。null的场合默认指定为"JPY"。|
+|eventInfo|JSONObject|按下面式样的说明来指定Json。|
 
-### 1.2. eventInfo式樣
-在eventInfo裡，通過Json形式設定Action附帶的資訊这种方式，能夠進行動態廣告協作投放。Json式樣如下。
+### 1.2. eventInfo式样
+在eventInfo里，通过Json形式设定Action附带的资讯这种方式，能够进行动态广告协作投放。Json式样如下。
 
-| 參數 | 型 | 概要 |
+| 参数 | 型 | 概要 |
 |:----------|:-----------:|:------------|
-|product|Array|閱覽過的放入購物車的商品的設定領域。|
-|&nbsp;&nbsp;product[].id|String|指定閱覽過的放入購物車的商品ID。|
-|&nbsp;&nbsp;product[].price|double|指定閱覽過的放入購物車的商品單價。|
-|&nbsp;&nbsp;product[].quantity|int|指定閱覽過的放入購物車的商品數量。|
-|&nbsp;&nbsp;product[].category|String|指定閱覽過的放入購物車的商品種別。<br>若想設定多個請用「,」來區分、分層次請用「>」來分割。<br>例）電影，錄像>DVD>體育，休閑|
-|din|String|若想指定開始日請設定。|
-|dout|String|若想指定結束日請設定。|
-|criteo_partner_id|String|Criteo帳號ID在同一個APP裡不一樣的時候請設定。|
-|fox_cvpoint|Long|輸入F.O.X的成果地點ID。|
-|datafeed|JSONObject|實時數據字段(參考下方)|
+|product|Array|阅览过的放入购物车的商品的设定领域。|
+|  product[].id|String|指定阅览过的放入购物车的商品ID。|
+|  product[].price|double|指定阅览过的放入购物车的商品单价。|
+|  product[].quantity|int|指定阅览过的放入购物车的商品数量。|
+|  product[].category|String|指定阅览过的放入购物车的商品种別。<br>若想设定多个请用「,」来区分、分层次请用「>」来分割。<br>例）电影，录像>DVD>体育，休闲|
+|din|String|若想指定开始日请设定。|
+|dout|String|若想指定结束日请设定。|
+|criteo_partner_id|String|Criteo帐号ID在同一个APP里不一样的时候请设定。|
+|fox_cvpoint|Long|输入F.O.X的成果地点ID。|
+|datafeed|JSONObject|实时数据字段(参考下方)|
 
-### 1.3. 實時數據字段更新式樣
-在eventInfo裡，通過Json形式設定數據字段的更新情報的方式，根据F.O.X Engagement廣告投放協作能夠實時更新數據字段。
+### 1.3. 实时数据字段更新式样
+在eventInfo里，通过Json形式设定数据字段的更新情报的方式，根据F.O.X Engagement广告投放协作能够实时更新数据字段。
 
-#### JSON 佈局詳細
+#### JSON 布局详细
 
-對於更新數據字段狀態的Action，請按下面Json式樣來安裝。
+对于更新数据字段状态的Action，请按下面Json式样来安装。
 
-| 參數 |必須|型 | 概要 |
+| 参数 |必须|型 | 概要 |
 |:----------|:-------:|:----:|:------------|
-|version|必須|String|指定數據字段的版本。|
-|product|必須|Array|商品主表的數據字段的設定領域。|
-|&nbsp;&nbsp;product[].id|必須|String|能夠專門識別數據字段的商品的ID。|
-|&nbsp;&nbsp;product[].action|必須|String|輸入對數據字段的操作。<br>U:添加或編輯　D:刪除|
-|&nbsp;&nbsp;product[].name|必須|String|商品名。<br>刪除時可以設定為null。|
-|&nbsp;&nbsp;product[].expire|任意|String|商品的有效期限。<br>請按照「yyyy-MM-dd HH:mm:ss」或者「yyyy-MM-dd」的格式來輸入日期。|
-|&nbsp;&nbsp;product[].effective|任意|String|商品的公開日期和時間。<br>如果此項被設定，到公開日期和時間為止，商品不會被顯示出來。<br>請按照「yyyy-MM-dd HH:mm:ss」或「yyyy-MM-dd」的格式來輸入日期。|
-|&nbsp;&nbsp;product[].img|任意|String|商品的圖像URL。|
-|&nbsp;&nbsp;product[].category1|任意|String|指定第一層次的種別。|
-|&nbsp;&nbsp;product[].category2|任意|String|指定第二層次的種別。|
-|&nbsp;&nbsp;product[].category3|任意|String|指定第三層次的種別。|
-|&nbsp;&nbsp;product[].price|任意|Double|指定商品價格。|
-|&nbsp;&nbsp;product[].currency|任意|String|指定商品的貨幣代碼。<br>null的場合默認指定為"JPY"。|
-|&nbsp;&nbsp;product[].(任意)|任意|String|指定其他投放或分析使用的項目。<br>請指定數據字段的項目。|
+|version|必须|String|指定数据字段的版本。|
+|product|必须|Array|商品主表的数据字段的设定领域。|
+|  product[].id|必须|String|能够专门识別数据字段的商品的ID。|
+|  product[].action|必须|String|输入对数据字段的操作。<br>U:添加或编辑　D:删除|
+|  product[].name|必须|String|商品名。<br>删除时可以设定为null。|
+|  product[].expire|任意|String|商品的有效期限。<br>请按照「yyyy-MM-dd HH:mm:ss」或者「yyyy-MM-dd」的格式来输入日期。|
+|  product[].effective|任意|String|商品的公开日期和时间。<br>如果此项被设定，到公开日期和时间为止，商品不会被显示出来。<br>请按照「yyyy-MM-dd HH:mm:ss」或「yyyy-MM-dd」的格式来输入日期。|
+|  product[].img|任意|String|商品的图像URL。|
+|  product[].category1|任意|String|指定第一层次的种別。|
+|  product[].category2|任意|String|指定第二层次的种別。|
+|  product[].category3|任意|String|指定第三层次的种別。|
+|  product[].price|任意|Double|指定商品价格。|
+|  product[].currency|任意|String|指定商品的货币代码。<br>null的场合默认指定为"JPY"。|
+|  product[].(任意)|任意|String|指定其他投放或分析使用的项目。<br>请指定数据字段的项目。|
 
 　　　
-## 2.事件計測的安裝
-　F.O.X SDK對應的F.O.X Engagement的事件計測和Criteo的事件計測分為以下5種。<br>安裝的詳細請確認下面的詳細頁面。
+## 2.事件计测的安装
+　F.O.X SDK对应的F.O.X Engagement的事件计测和Criteo的事件计测分为以下5种。<br>安装的详细请确认下面的详细页面。
 
 * [> View Toppage事件](./ViewToppageEvent.md)
 * [> View Listing事件](./ViewListingEvent.md)

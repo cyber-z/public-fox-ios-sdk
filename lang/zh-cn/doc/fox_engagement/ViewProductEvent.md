@@ -1,8 +1,8 @@
-#	View Product（商品閱覽事件）安裝方法
+#	View Product（商品阅览事件）安装方法
 
-　在View Product（單個商品閱覽）事件發生的地點、請按照下面的例子來安裝流量分析的事件計測功能。
+　在View Product（单个商品阅览）事件发生的地点、请按照下面的例子来安装流量分析的事件计测功能。
 
-### 安裝實例
+### 安装实例
 
 ```java
 [ForceAnalyticsManager sendEvent:@"_view_content"
@@ -21,23 +21,23 @@
 
 ### 参数详细
 
-| 參數 | 型 | 概要 |
+| 参数 | 型 | 概要 |
 |:----------|:-----------:|:------------|
-|eventName|NSString|請指定"\_view\_content"|
+|eventName|NSString|请指定"\_view\_content"|
 |<span style="color:grey">action|<span style="color:grey">NSString|<span style="color:grey">不使用。|
 |<span style="color:grey">label|<span style="color:grey">NSString|<span style="color:grey">不使用。|
 |<span style="color:grey">value|<span style="color:grey">NSUInteger|<span style="color:grey">不使用。|
-|eventInfo|NSDictionary|事件資訊詳細 (參考下面)|
+|eventInfo|NSDictionary|事件资讯详细 (参考下面)|
 
-#### 事件資訊詳細
+#### 事件资讯详细
 
-| 參數 | 型 | 概要 |
+| 参数 | 型 | 概要 |
 |:----------|:-----------:|:------------|
-|eventInfo (fox_cvpoint)|NSDictionary|設定F.O.X的成果地點ID。|
-|eventInfo (product)|NSDictionary|把Product作為KEY，用數組形式設定商品ID。|
-|&nbsp;&nbsp;eventInfo (product[].id)|NSDictionary|設定閱覽的商品ID。|
-|eventInfo (din/dout)|NSDictionary|如果希望指定日期請輸入（任意）|
-|eventInfo (criteo_partner_id)|NSDictionary|Criteo帳號ID在同一個APP裡不一樣的時候請設定。(任意)|
+|eventInfo (fox_cvpoint)|NSDictionary|设定F.O.X的成果地点ID。|
+|eventInfo (product)|NSDictionary|把Product作为KEY，用数组形式设定商品ID。|
+|  eventInfo (product[].id)|NSDictionary|设定阅览的商品ID。|
+|eventInfo (din/dout)|NSDictionary|如果希望指定日期请输入（任意）|
+|eventInfo (criteo_partner_id)|NSDictionary|Criteo帐号ID在同一个APP里不一样的时候请设定。(任意)|
 　　
 
 ---

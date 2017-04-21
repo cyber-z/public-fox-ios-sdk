@@ -1,7 +1,7 @@
-#	View Home(APP TOP訪問事件)安裝方法
-　在View Home（HOME畫面）事件發生的地點、請按照下面的例子來安裝流量分析的事件計測功能。
+#	View Home(APP TOP访问事件)安装方法
+　在View Home（HOME画面）事件发生的地点、请按照下面的例子来安装流量分析的事件计测功能。
 
-### 安裝實例
+### 安装实例
 
 ```objective-c
 [ForceAnalyticsManager sendEvent:@"_view_toppage"
@@ -19,22 +19,22 @@
 
 ### 参数详细
 
-| 參數 | 型 | 概要 |
+| 参数 | 型 | 概要 |
 |:----------|:-----------:|:------------|
-|eventName|NSString|請指定“\_view\_toppage”|
+|eventName|NSString|请指定“\_view\_toppage”|
 |<span style="color:grey">action|<span style="color:grey">NSString|<span style="color:grey">不使用。|
 |<span style="color:grey">label|<span style="color:grey">NSString|<span style="color:grey">不使用。|
 |<span style="color:grey">value|<span style="color:grey">NSUInteger|<span style="color:grey">不使用。|
-|eventInfo|NSDictionary|事件資訊詳細 (參考下面)|
+|eventInfo|NSDictionary|事件资讯详细 (参考下面)|
 
 
-#### 事件資訊詳細
+#### 事件资讯详细
 
-| 參數 | 型 | 概要 |
+| 参数 | 型 | 概要 |
 |:----------|:-----------:|:------------|
-|eventInfo (din/dout)|NSDictionary|如果希望指定日期請輸入（任意）|
-|eventInfo (criteo_partner_id)|NSDictionary|Criteo帳號ID在同一個APP裡不一樣的時候請設定。(任意)|
-|eventInfo (fox_cvpoint)|NSDictionary|設定F.O.X的成果地點ID。|
+|eventInfo (din/dout)|NSDictionary|如果希望指定日期请输入（任意）|
+|eventInfo (criteo_partner_id)|NSDictionary|Criteo帐号ID在同一个APP里不一样的时候请设定。(任意)|
+|eventInfo (fox_cvpoint)|NSDictionary|设定F.O.X的成果地点ID。|
 
 ---
 [返回](/lang/zh-tw/doc/fox_engagement/README.md)<br>
