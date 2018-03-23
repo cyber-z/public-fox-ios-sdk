@@ -116,13 +116,17 @@ github "cyber-z/public-fox-ios-sdk" == <VERSION>
 
 > ※ Carthageの場合Target VersionはiOS 8.0以上に指定する必要となります。
 
+* __版本迁移到4.4.0时__
+  在导入4.3.0以下含4.3.0的版本时，需要导入三个dynamic framework文件(`CYZFox`, `CYZAdCommon`, `CYZAdUtil`)，但从4.4.0开始只需要导入一个`CYZFox.framework`文件了。为了编译通过，需要手动删除`CYZAdCommon`以及`CYZAdUtil`的文件和设置。
+
+
 <div id="by_manual"></div>
 
 ### 1.3 手动导入
 
 请在[发布页面](https://github.com/cyber-z/public_fox_ios_sdk/releases)中下载并解压最新安定版（Latest release）的`CYZFox_iOS_static_<VERSION>.zip`，将`CYZFox.framework`文件安装到Xcode项目中。
 
-> ※ 如果APP中已经安装了SDK，请参考[更新到最新版本](./doc/update/README.md)。
+> ※ 如果APP中已经安装了3系列SDK，请参考[更新到最新版本](./doc/update/README.md)。
 
 > ※ tvOS的场合请下载`CYZFox_tvOS_static_<VERSION>.zip`。导入步骤与iOS相同。
 

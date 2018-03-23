@@ -116,13 +116,19 @@ github "cyber-z/public-fox-ios-sdk" == <VERSION>
 
 > ※ Carthageの場合Target VersionはiOS 8.0以上に指定する必要となります。
 
+* __4.4.0へマイグレーションの場合__
+
+  4.3.0までは三つのdynamic framework(`CYZFox`, `CYZAdCommon`, `CYZAdUtil`)が導入されるが、
+  4.4.0から`CYZFox.framework`一つとなりました。
+  従って`CYZAdCommon`と`CYZAdUtil`のファイルと設定を手動で削除する作業が必要となります。
+
 <div id="by_manual"></div>
 
 ### 1.3 手動による導入
 
 [リリースページ](https://github.com/cyber-z/public_fox_ios_sdk/releases)から`CYZFox_iOS_static_<VERSION>.zip`をダウンロードして展開し、`CYZFox.framework`ファイルをXcodeプロジェクトに組み込んでください。
 
-> ※ 既にアプリケーションにSDKが導入されている場合には、[最新バージョンへのアップデートについて](./doc/update/README.md)をご参照ください。
+> ※ 既にアプリケーションに3系のSDKが導入されている場合には、[最新バージョンへのアップデートについて](./doc/update/README.md)をご参照ください。
 
 > ※ tvOSの場合`CYZFox_tvOS_static_<VERSION>.zip`をダウンロードしてください。導入手順はiOSと同じです。
 
